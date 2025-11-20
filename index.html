@@ -32,6 +32,297 @@
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
           type="text/css"/>
     <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <style>
+        /* 现代化样式优化 */
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+        }
+
+        .navbar-default {
+            background: rgba(255, 255, 255, 0.98);
+            border: none;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 22px;
+            font-weight: bold;
+            color: #667eea !important;
+        }
+
+        /* 主内容区 */
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+
+        .hero-section h1 {
+            color: #333;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero-section p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+
+        /* 二维码生成区域 */
+        .qr-generator-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        #qrcode {
+            background-color: #fff !important;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0 !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 12px 40px;
+            font-size: 16px;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-default {
+            border: 2px solid #ddd;
+            padding: 12px 40px;
+            font-size: 16px;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .btn-default:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        /* 使用说明样式 */
+        .usage-guide {
+            margin-bottom: 40px;
+        }
+
+        .usage-guide h2 {
+            text-align: center;
+            color: #333;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .usage-guide h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .step-card h4 {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .step-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 优势板块样式 */
+        .advantage-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .advantage-section h2 {
+            text-align: center;
+            color: #333;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .advantage-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .advantage-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .advantage-icon {
+            font-size: 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .advantage-card h4 {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .advantage-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* 介绍内容样式优化 */
+        .intro-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .intro-section h1 {
+            color: #333;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .intro-section p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .intro-section hr {
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        .intro-section img {
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            padding: 15px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 28px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .qr-generator-box {
+                padding: 20px;
+            }
+        }
+    </style>
     <!--[if lt IE 9]>
     <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
     <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
@@ -55,84 +346,193 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12 col10main">
-            <div class="accordion" id="accordion2">
-                <div class="accordion-group" style="min-height: 393px;">
-                    <div class="">
-                        <form id="form1" class="form-horizontal" method="post">
+        <div class="col-md-12">
+            <!-- Hero Section -->
+            <div class="main-content">
+                <div class="hero-section">
+                    <h1>在线二维码生成器</h1>
+                    <p>快速、简单、免费 - 支持文本、网址、名片等多种格式</p>
+                </div>
+
+                <!-- 二维码生成器区域 -->
+                <div class="qr-generator-box">
+                    <form id="form1" class="form-horizontal" method="post">
+                        <div class="row">
                             <div class="col-sm-7">
                                 <div class="form-group">
-                                    <label class="control-label"
-                                           style="line-height: 50px;font-size: 16px;">文字内容：</label>
-                                    <div class="">
-                                    <textarea class="form-control" id="content" name="content"
-                                              type="text" placeholder="请输入文字内容，例如：https://www.baidu.com"
-                                              autocomplete="off"  style="height: 258px;resize:none;"></textarea>
+                                    <label class="control-label" style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">
+                                        <i class="fa fa-edit"></i> 文字内容：
+                                    </label>
+                                    <div>
+                                        <textarea class="form-control" id="content" name="content"
+                                                  type="text" placeholder="请输入文字内容，例如：https://www.baidu.com"
+                                                  autocomplete="off" style="height: 258px;resize:none;"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-sm-12" style="padding-left: 0px;">
-                                        <button type="button" class="btn btn-success" id="btnresult">生成二维码</button>
-                                        <button type="button" class="btn btn-default" onclick="empty()">清空</button>
+                                    <div style="text-align: center;">
+                                        <button type="button" class="btn btn-success" id="btnresult">
+                                            <i class="fa fa-qrcode"></i> 生成二维码
+                                        </button>
+                                        <button type="button" class="btn btn-default" onclick="empty()">
+                                            <i class="fa fa-refresh"></i> 清空
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-1"></div>
                             <div class="col-sm-4">
-                                <label class=" control-label" style="line-height: 50px;font-size: 16px;">二维码预览：</label>
-                                <div class="">
-                                    <div id="qrcode" style="display:inline-block;border: #eee 1px solid;background-color: #efefef;"></div>
+                                <label class="control-label" style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">
+                                    <i class="fa fa-eye"></i> 二维码预览：
+                                </label>
+                                <div style="text-align: center;">
+                                    <div id="qrcode" style="display:inline-block;"></div>
                                 </div>
                             </div>
+                        </div>
+                    </form>
+                </div>
 
-                        </form>
+                <!-- 使用说明板块 -->
+                <div class="usage-guide">
+                    <h2><i class="fa fa-book"></i> 使用说明</h2>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="step-card">
+                                <div class="step-number">1</div>
+                                <h4>输入内容</h4>
+                                <p>在文字内容框中输入您想要转换的文本、网址、电话号码等信息</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="step-card">
+                                <div class="step-number">2</div>
+                                <h4>点击生成</h4>
+                                <p>点击"生成二维码"按钮，系统将自动为您创建二维码图片</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="step-card">
+                                <div class="step-number">3</div>
+                                <h4>预览查看</h4>
+                                <p>在右侧预览区域实时查看生成的二维码效果</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="step-card">
+                                <div class="step-number">4</div>
+                                <h4>保存使用</h4>
+                                <p>右键点击二维码图片即可保存到本地，随时使用</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="alert  alert-success alert-dismissible" style="margin-top: 16px;display: block;">
-                    <h1 style="font-size: 20px;"><b>二维码生成器</b></h1>
-                    二维码（QR code）是一种用于快速读取和存储信息的矩阵式二维码符号。它是由日本Denso公司于1994年9月研制的一种条码技术，具有高效、可靠、灵活和广泛等特点。
-                    <p>二维码由一些黑色和白色的小方块组成，这些方块按照特定的规则排列。通过使用不同的黑白方块组合，可以编码各种类型的数据，包括文本、URL、电话号码、电子邮件地址、图片、视频等。
-                        使用二维码可以方便地将信息传输到其他设备或与互联网连接的设备上。例如，您可以将二维码保存到手机相册中，然后使用手机应用程序扫描该二维码，以访问链接、下载文件、获取信息等。
-                        由于二维码的灵活性和普遍性，它们已经广泛应用于各种领域，如商业、医疗保健、教育、物流、娱乐等。
-                    </p>
-                    <hr/>
-                    <p>二维码的生成原理涉及到编码过程和纠错码的生成。以下是基本的步骤：</p>
 
-                    <p>1.数据编码：首先，需要将需要存储的数据转换为二进制码。这个过程可以通过将数据转换为ASCII码，然后再将ASCII码转换为二进制码实现。</p>
-                    <p>
-                        2.生成纠错码：为了提高二维码的识别率，需要为每个字符生成一组纠错码。纠错码的作用是检测和修正错误，通常采用的是Reed-Solomon编码。这种算法可以检测并修正一定数量的错误，从而确保二维码的可靠性。</p>
-                    <p>3.模块排列：将数据和纠错码按照一定的规则排列到二维码矩阵中。具体的排列方式取决于二维码的类型和版本。</p>
-
-
-                    <hr/>
-                    <p><b>二维码样例图</b></p>
-                    <br/>
-                    <img alt="二维码样例图" src="/static/images/qrcode-demo1.webp" style="width: 75%;"/>
-
-                    <hr/>
-                    <p><b>数据编码</b></p>
-                    <br/>
-                    <img alt="数据编码" src="/static/images/qrcode-demo2.webp" style="width: 75%;"/>
-                    <br/>
-                    <br/>
-                    <p> QR码支持如下的编码： </p>
-                    <p><b>Numeric mode 数字编码</b>，从0到9。如果需要编码的数字的个数不是3的倍数，那么，最后剩下的1或2位数会被转成4或7bits，则其它的每3位数字会被编成
-                        10，12，14bits，编成多长还要看二维码的尺寸
-                    </p>
-                    <p><b>Alphanumeric mode 字符编码</b>。包括 0-9，大写的A到Z（没有小写），以及符号$ % * + – . / :
-                        包括空格。这些字符会映射成一个字符索引表。如下所示：（其中的SP是空格，Char是字符，Value是其索引值）
-                        编码的过程是把字符两两分组，然后转成下表的45进制，然后转成11bits的二进制，如果最后有一个落单的，那就转成6bits的二进制。而编码模式和字符的个数需要根据不同的Version尺寸编成9,
-                        11或13个二进制
-
-                    </p>
-
-                    <br/>
-                    <p>视频教学</p>
-                    <iframe title="视频教学" style="width: 75%;aspect-ratio: 16/9;min-height: 200px;" src="//player.bilibili.com/player.html?aid=358897106&bvid=BV1wX4y1E72U&cid=1211839546&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-
+                <!-- 我们的优势板块 -->
+                <div class="advantage-section">
+                    <h2><i class="fa fa-star"></i> 工具优势</h2>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="advantage-card">
+                                <div class="advantage-icon">
+                                    <i class="fa fa-bolt"></i>
+                                </div>
+                                <h4>快速生成</h4>
+                                <p>无需等待，即时生成高质量二维码，提高工作效率</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="advantage-card">
+                                <div class="advantage-icon">
+                                    <i class="fa fa-gift"></i>
+                                </div>
+                                <h4>完全免费</h4>
+                                <p>无需注册登录，无使用次数限制，永久免费使用</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="advantage-card">
+                                <div class="advantage-icon">
+                                    <i class="fa fa-shield"></i>
+                                </div>
+                                <h4>隐私安全</h4>
+                                <p>本地生成二维码，数据不上传服务器，保护您的隐私</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="advantage-card">
+                                <div class="advantage-icon">
+                                    <i class="fa fa-check-circle"></i>
+                                </div>
+                                <h4>高清画质</h4>
+                                <p>生成256x256高清二维码，确保扫描识别准确无误</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="advantage-card">
+                                <div class="advantage-icon">
+                                    <i class="fa fa-mobile"></i>
+                                </div>
+                                <h4>多端适配</h4>
+                                <p>支持电脑、手机、平板等各种设备，随时随地生成</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="advantage-card">
+                                <div class="advantage-icon">
+                                    <i class="fa fa-cogs"></i>
+                                </div>
+                                <h4>纠错机制</h4>
+                                <p>采用高级别纠错算法，即使部分损坏也能正常扫描</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="accordion-group"></div>
+            </div>
+
+            <!-- 介绍内容 -->
+            <div class="intro-section">
+                <h1><b>二维码生成器</b></h1>
+                二维码（QR code）是一种用于快速读取和存储信息的矩阵式二维码符号。它是由日本Denso公司于1994年9月研制的一种条码技术，具有高效、可靠、灵活和广泛等特点。
+                <p>二维码由一些黑色和白色的小方块组成，这些方块按照特定的规则排列。通过使用不同的黑白方块组合，可以编码各种类型的数据，包括文本、URL、电话号码、电子邮件地址、图片、视频等。
+                    使用二维码可以方便地将信息传输到其他设备或与互联网连接的设备上。例如，您可以将二维码保存到手机相册中，然后使用手机应用程序扫描该二维码，以访问链接、下载文件、获取信息等。
+                    由于二维码的灵活性和普遍性，它们已经广泛应用于各种领域，如商业、医疗保健、教育、物流、娱乐等。
+                </p>
+                <hr/>
+                <p>二维码的生成原理涉及到编码过程和纠错码的生成。以下是基本的步骤：</p>
+
+                <p>1.数据编码：首先，需要将需要存储的数据转换为二进制码。这个过程可以通过将数据转换为ASCII码，然后再将ASCII码转换为二进制码实现。</p>
+                <p>
+                    2.生成纠错码：为了提高二维码的识别率，需要为每个字符生成一组纠错码。纠错码的作用是检测和修正错误，通常采用的是Reed-Solomon编码。这种算法可以检测并修正一定数量的错误，从而确保二维码的可靠性。</p>
+                <p>3.模块排列：将数据和纠错码按照一定的规则排列到二维码矩阵中。具体的排列方式取决于二维码的类型和版本。</p>
+
+
+                <hr/>
+                <p><b>二维码样例图</b></p>
+                <br/>
+                <img alt="二维码样例图" src="/static/images/qrcode-demo1.webp" style="width: 75%;"/>
+
+                <hr/>
+                <p><b>数据编码</b></p>
+                <br/>
+                <img alt="数据编码" src="/static/images/qrcode-demo2.webp" style="width: 75%;"/>
+                <br/>
+                <br/>
+                <p> QR码支持如下的编码： </p>
+                <p><b>Numeric mode 数字编码</b>，从0到9。如果需要编码的数字的个数不是3的倍数，那么，最后剩下的1或2位数字会被转成4或7bits，则其它的每3位数字会被编成
+                    10，12，14bits，编成多长还要看二维码的尺寸
+                </p>
+                <p><b>Alphanumeric mode 字符编码</b>。包括 0-9，大写的A到Z（没有小写），以及符号$ % * + – . / :
+                    包括空格。这些字符会映射成一个字符索引表。如下所示：（其中的SP是空格，Char是字符，Value是其索引值）
+                    编码的过程是把字符两两分组，然后转成下表的45进制，然后转成11bits的二进制，如果最后有一个落单的，那就转成6bits的二进制。而编码模式和字符的个数需要根据不同的Version尺寸编成9,
+                    11或13个二进制
+
+                </p>
+
+                <br/>
+                <p><b>视频教学</b></p>
+                <iframe style="width: 75%;aspect-ratio: 16/9;min-height: 200px;" src="//player.bilibili.com/player.html?isOutside=true&aid=277461232&bvid=BV18w411F778&cid=1306185840&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
             </div>
         </div>
     </div>
@@ -186,7 +586,7 @@ function empty() {
                 <a href="https://stackoverflow.com" target="_blank">stackoverflow</a>
                 <a href="https://cnblogs.com" target="_blank">博客园</a>
                 <a href="https://juejin.cn" target="_blank">稀土掘金</a>
-                <a href="https://ps.gitapp.cn" target="_blank">在线PS</a>
+                <a href="https://zaixianps.net" target="_blank">在线PS</a>
             </p>
         </div>
     </div>
@@ -197,7 +597,7 @@ function empty() {
         <div class="row">
             <div class="col-sm-12">
                 <span>
-                    Copyright ©2023
+                    Copyright ©2025
                     <a href="/#home">
                         程序设计在线工具集
                     </a>
