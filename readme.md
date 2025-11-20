@@ -10,7 +10,7 @@
 
 **快速、简单、免费的在线二维码生成工具**
 
-[在线演示](https://github.com/net936/web_qrcode) | [问题反馈](https://github.com/net936/web_qrcode/issues)
+[在线演示](https://qrcode.gitapp.cn) | [问题反馈](https://github.com/net936/web_qrcode/issues)
 
 </div>
 
@@ -99,10 +99,6 @@ http-server -p 8080
 ### 基本使用
 
 1. **输入内容**：在左侧文本框中输入您想要转换的内容
-   - 网址：https://www.example.com
-   - 文本：任意文字内容
-   - 电话：+86 138-0000-0000
-   - 邮箱：example@email.com
 
 2. **生成二维码**：点击"生成二维码"按钮
 
