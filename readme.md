@@ -204,7 +204,7 @@ web_qrcode/
 
 - **项目地址**：[https://github.com/net936/web_qrcode](https://github.com/net936/web_qrcode)
 - **问题反馈**：[Issues](https://github.com/net936/web_qrcode/issues)
-- **客服 QQ**：285126081
+
 
 ## 💝 支持项目
 
